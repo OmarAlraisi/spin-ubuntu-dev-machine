@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  connect: local
+  become: true
+
+  pre_tasks:
+  - name: update package manager repo
+    apt:
+      update_cache: true
+
+  - name: upgrade packages to latest
+    apt:
+      name: "*"
+      state: latest
+
