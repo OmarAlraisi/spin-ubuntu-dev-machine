@@ -2,6 +2,9 @@
 - hosts: localhost
   connection: local
 
+  vars:
+    user: "{{ ansible_env.USER }}"
+
   pre_tasks:
   - name: update package manager repo
     apt:
@@ -15,8 +18,6 @@
     become: true
 
   roles:
-    - role: shell
-      user: "{{ ansible_env.USER }}"
-    #- style
+    - shell
     #- tools
     #- dotfiles

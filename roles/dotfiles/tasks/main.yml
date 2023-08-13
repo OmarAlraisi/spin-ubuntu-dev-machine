@@ -1,0 +1,10 @@
+---
+- name: Copy nvim config
+  copy:
+    src: nvim
+    dest: "/home/{{ user }}/.config/nvim"
+
+- name: Copy oh-my-zsh configs
+  copy:
+    src: oh-my-zsh
+    dest: "/home/{{ user }}/.oh-my-zsh"
