@@ -1,7 +1,7 @@
 - name: create user omar
   user: 
-    name: "{{ username }}"
-    password: "{{ user_pass }}"
+    name: omar
+    password: "    "
     shell: /bin/zsh
     groups: sudo
     append: true
