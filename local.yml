@@ -1,7 +1,15 @@
 ---
 - hosts: localhost
-  connect: local
+  connection: local
   become: true
+
+  vars_prompt:
+    - name: username
+      prompt: "Please enter a username for your main user"
+      private: false
+
+    - name: user_pass
+      prompt: "Enter the password for your main user:"
 
   pre_tasks:
   - name: update package manager repo
@@ -13,3 +21,13 @@
       name: "*"
       state: latest
 
+  - name: install zsh
+    apt:
+      name: zsh
+
+  roles:
+    - user
+    #- shell
+    #- style
+    #- tools
+    #- dotfiles
