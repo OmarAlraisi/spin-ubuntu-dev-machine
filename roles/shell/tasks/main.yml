@@ -2,8 +2,8 @@
 - name: Ensure ZSH is installed
   apt:
     name: zsh
+    state: present
 
 - name: Set zsh as the default shell for the current user
-  user:
-    name: "{{ user }}"
-    shell: /usr/bin/zsh
+  become_user: "{{ user }}"
+  command: "chsh -s $(which zsh)"

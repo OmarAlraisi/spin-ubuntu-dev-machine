@@ -13,10 +13,6 @@
       name: "*"
       state: latest
 
-  - name: install zsh
-    apt:
-      name: zsh
-
   roles:
     - role: shell
       user: "{{ ansible_env.USER }}"
