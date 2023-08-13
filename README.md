@@ -6,7 +6,6 @@ This is repo is designed to my preferences. The README will include information 
 
 The playbook does different types of configurations, including
 
- - Ensure a user 'omar' is created
  - Making Z-Shell the default shell
  - Styling the shell:
     - Install appropriate fonts
@@ -26,9 +25,7 @@ The folder structure breaks down like this:
 
 **local.yml**: This is the Playbook that Ansible expects to find by default in pull-mode, think of it as an "index" of sorts that pulls other Playbooks in. It includes pre_tasks to update and upgrade packages, roles to call all the roles, and post_taks to clean up and set up a cronjob to automate ansible-pull.
 
-**roles/user**: This directory contains tasks to create a user 'omar'.
-
-**roles/shell**: This directory contains tasks to install and set Z-shell as the default shell for user 'omar'.
+**roles/shell**: This directory contains tasks to install and set Z-shell as the default shell for the current user.
 
 **roles/style**: This directory contains tasks to style the shell for user 'omar'.
 

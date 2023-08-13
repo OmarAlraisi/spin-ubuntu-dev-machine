@@ -1,7 +1,0 @@
-- name: create user omar
-  user: 
-    name: omar
-    password: omar
-    shell: /bin/zsh
-    groups: sudo
-    append: true

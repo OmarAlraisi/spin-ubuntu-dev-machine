@@ -1,0 +1,9 @@
+---
+- name: Ensure ZSH is installed
+  apt:
+    name: zsh
+
+- name: Set zsh as the default shell for the current user
+  user:
+    name: "{{ ansible_user }}"
+    shell: /bin/zsh
