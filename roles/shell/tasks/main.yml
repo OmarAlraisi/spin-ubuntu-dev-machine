@@ -6,4 +6,4 @@
 
 - name: Set zsh as the default shell for the current user
   become_user: "{{ user }}"
-  command: "chsh -s $(which zsh)"
+  command: "chsh -s /usr/bin/zsh"
