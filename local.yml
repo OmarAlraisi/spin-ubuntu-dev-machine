@@ -6,10 +6,11 @@
   vars_prompt:
     - name: username
       prompt: "Please enter a username for your main user"
-      private: false
+      private: no
 
     - name: user_pass
-      prompt: "Enter the password for your main user:"
+      prompt: "Enter the password for your main user"
+      private: yes
 
   pre_tasks:
   - name: update package manager repo
