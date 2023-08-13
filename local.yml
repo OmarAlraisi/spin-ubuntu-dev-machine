@@ -18,7 +18,8 @@
       name: zsh
 
   roles:
-    - shell
+    - role: shell
+      user: "{{ ansible_user }}"
     #- style
     #- tools
     #- dotfiles
