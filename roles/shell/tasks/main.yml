@@ -11,8 +11,9 @@
     name: "{{ user }}"
     shell: /usr/bin/zsh
 
-- name: Install oh-my-zsh
-  command: "sh -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\""
+- name: Run Oh My Zsh Installation Script
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  become: yes
 
 - name: Install PowerLevel10K theme
   git:
