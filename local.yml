@@ -1,17 +1,18 @@
 ---
 - hosts: localhost
   connection: local
-  become: true
 
   pre_tasks:
   - name: update package manager repo
     apt:
       update_cache: true
+    become: true
 
   - name: upgrade packages to latest
     apt:
       name: "*"
       state: latest
+    become: true
 
   roles:
     - shell

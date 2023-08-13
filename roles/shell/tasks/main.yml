@@ -1,8 +1,13 @@
 ---
+- name: Hmm
+  debug:
+    msg: "{{ ansible_env.USER }}"
+
 - name: Ensure ZSH is installed
   apt:
     name: zsh
     state: present
+  become: true
 
 - name: Set zsh as the default shell for the current user
   user:
