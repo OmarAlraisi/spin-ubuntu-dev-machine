@@ -1,10 +1,25 @@
 ---
-- name: Copy nvim config
+- name: Copy zshrc file
   copy:
-    src: nvim
-    dest: "/home/{{ user }}/.config/nvim"
+    src: zshrc
+    dest: "/home/{{ user }}/.zshrc"
+
+- name: Copy zshenv file
+  copy:
+    src: zshenv
+    dest: "/home/{{ user }}/zshenv"
 
 - name: Copy oh-my-zsh configs
   copy:
     src: oh-my-zsh
     dest: "/home/{{ user }}/.oh-my-zsh"
+
+- name: Copy o10k.zsh file
+  copy:
+    src: p10k.zsh
+    dest: "/home/{{ user }}/.p10k.zsh"
+
+      #- name: Copy nvim config
+      #copy:
+      #src: nvim
+      #dest: "/home/{{ user }}/.config/nvim"
