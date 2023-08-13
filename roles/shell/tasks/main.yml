@@ -16,6 +16,7 @@
   become: yes
 
 - name: Install PowerLevel10K theme
+  become: true
   git:
     repo: https://github.com/romkatv/powerlevel10k.git
     dest: "{{ lookup('env', 'ZSH_CUSTOM') }}/themes/powerlevel10k"
