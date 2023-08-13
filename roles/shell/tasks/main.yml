@@ -6,4 +6,4 @@
 - name: Set zsh as the default shell for the current user
   user:
     name: "{{ user }}"
-    shell: /bin/zsh
+    shell: /usr/bin/zsh
