@@ -15,7 +15,8 @@
     become: true
 
   roles:
-    - shell
+    - role: shell
+      user: "{{ ansible_env.USER }}"
     #- style
     #- tools
     #- dotfiles

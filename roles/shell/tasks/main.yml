@@ -6,7 +6,7 @@
   become: true
 
 - name: Set zsh as the default shell for the current user
-  become_user: "{{ ansible_env.USER }}"
+  become: true
   user:
-    name: "{{ ansible_env.USER }}"
+    name: "{{ user }}"
     shell: /usr/bin/zsh
