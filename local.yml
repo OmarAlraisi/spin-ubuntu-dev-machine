@@ -14,8 +14,7 @@
       state: latest
 
   roles:
-    - role: shell
-      user: "{{ ansible_env.USER }}"
+    - shell
     #- style
     #- tools
     #- dotfiles

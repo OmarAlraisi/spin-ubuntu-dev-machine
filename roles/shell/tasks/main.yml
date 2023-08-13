@@ -5,4 +5,4 @@
     state: present
 
 - name: Set zsh as the default shell for the current user
-  command: "chsh -s /usr/bin/zsh -u {{ user }}"
+  command: "chsh -s /usr/bin/zsh -u omar"
