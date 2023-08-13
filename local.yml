@@ -19,7 +19,7 @@
 
   roles:
     - role: shell
-      user: "{{ ansible_user }}"
+      user: "{{ ansible_env.USER }}"
     #- style
     #- tools
     #- dotfiles
