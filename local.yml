@@ -20,4 +20,4 @@
   roles:
     - shell
     #- tools
-    #- dotfiles
+    - dotfiles
