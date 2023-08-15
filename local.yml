@@ -4,7 +4,7 @@
   become: true
 
   vars:
-    user: "{{ ansible_env.USER }}"
+    user: "{{ lookup('env', 'USER') }}"
 
   # Not updating the package manager repo because it will be redundant, the script has already taked care of this
 
