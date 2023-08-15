@@ -11,6 +11,7 @@
     name:
       - lsd
       - nvim
+    classic: true
 
 - name: Install Rust [1/2]
   get_url:
