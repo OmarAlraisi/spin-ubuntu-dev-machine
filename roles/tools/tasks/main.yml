@@ -10,7 +10,7 @@
   community.general.snap:
     name:
       - lsd
-      - neovim
+      - nvim
 
 - name: Install Rust [1/2]
   get_url:
