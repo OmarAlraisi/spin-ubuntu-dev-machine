@@ -2,6 +2,7 @@
 - name: check
   become_user: "{{ user }}"
   debug:
+    msg: "Hello user is '{{ user }}'"
 
 - name: Copy zshrc file
   become_user: "{{ user }}"
