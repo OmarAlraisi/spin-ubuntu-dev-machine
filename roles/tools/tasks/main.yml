@@ -14,7 +14,7 @@
     classic: true
 
 - name: Install Rust [1/2]
-  become_user: {{ user }}
+  become_user: "{{ user }}"
   get_url:
     url: https://sh.rustup.rs
     dest: /tmp/sh.rustup.rs
@@ -22,5 +22,5 @@
     force: yes
 
 - name: Install Rust [2/2]
-  become_user: {{ user }}
+  become_user: "{{ user }}"
   shell: /tmp/sh.rustup.rs -y
