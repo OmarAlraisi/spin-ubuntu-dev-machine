@@ -13,6 +13,10 @@
       - nvim
     classic: true
 
+- name: Install packer
+  become_user: "{{ user }}"
+  shell: "git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim"
+
 - name: Install Rust [1/2]
   become_user: "{{ user }}"
   get_url:
