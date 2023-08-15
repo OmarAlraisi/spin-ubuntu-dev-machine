@@ -40,9 +40,8 @@ There are two primary ways to automate your ubuntu setup:
 ### Method I: Two command method
 
  - Install ansible `sudo apt install ansible` - This will install all the required ansible commands.
- - Run the ansible pull command against this repo `asnible-pull -U https://github.com/OmarAlraisi/spin-ubuntu-dev-machine.git`
+ - Run the ansible pull command against this repo `ansible-pull -U https://github.com/OmarAlraisi/spin-ubuntu-dev-machine.git`
 
 ### Method II: One command method
 
- TODO:
- - Install and run setup script `wget http://url-to-script | bash`
+ - Install and run setup script `curl -sSL https://gist.githubusercontent.com/OmarAlraisi/66d272ece702e59ef58a41c78e16f934/raw/5de9b96a5a74cf6ffb35f7e104bbd0769e946bc5/spin-ubuntu-dev-machine.sh | bash`
