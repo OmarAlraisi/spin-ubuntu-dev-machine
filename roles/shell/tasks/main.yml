@@ -17,6 +17,12 @@
   become_user: "{{ user }}"
   shell: "curl -sSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash"
 
+- name: Create the leading directory for PowerLevel10K theme
+  become_user: "{{ user }}"
+  file:
+    path: "{{ lookup('env', 'ZSH_CUSTOM') }}/themes"
+    state: directory
+
 - name: Install PowerLevel10K theme
   become_user: "{{ user }}"
   git:
