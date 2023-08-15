@@ -14,6 +14,6 @@
   shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 - name: Install PowerLevel10K theme
-    git:
+  git:
     repo: https://github.com/romkatv/powerlevel10k.git
     dest: "{{ lookup('env', 'ZSH_CUSTOM') }}/themes/powerlevel10k"
