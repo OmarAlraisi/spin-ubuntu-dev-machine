@@ -17,13 +17,6 @@
   become_user: "{{ user }}"
   shell: "curl -sSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash"
 
-- name: Create the leading directory for PowerLevel10K theme
-  file:
-    path: "/home/omar/.oh-my-zsh/themes"
-    state: directory
-
 - name: Install PowerLevel10K theme
   become_user: "{{ user }}"
-  git:
-    repo: https://github.com/romkatv/powerlevel10k.git
-    dest: "{{ lookup('env', 'ZSH_CUSTOM') }}/themes/powerlevel10k"
+  shell: git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
