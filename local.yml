@@ -1,23 +1,21 @@
 ---
 - hosts: localhost
   connection: local
+  become: true
 
   vars:
     user: "{{ ansible_env.USER }}"
 
-  pre_tasks:
-  - name: update package manager repo
-    apt:
-      update_cache: true
-    become: true
-
-  - name: upgrade packages to latest
-    apt:
-      name: "*"
-      state: latest
-    become: true
+  # Not updating the package manager repo because it will be redundant, the script has already taked care of this
 
   roles:
     - shell
     #- tools
     - dotfiles
+
+  # The reason this is kept for last, because a new linux machine may need reboots when upgrading packages
+  post_tasks:
+    - name: upgrade packages to latest
+      apt:
+        name: "*"
+        state: latest

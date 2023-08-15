@@ -3,18 +3,17 @@
   apt:
     name: zsh
     state: present
-  become: true
 
 - name: Set zsh as the default shell for the current user
-  become: true
   user:
     name: "{{ user }}"
     shell: /usr/bin/zsh
 
 - name: Run Oh My Zsh Installation Script
+  become_user: "{{ user }}"
   shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-    #- name: Install PowerLevel10K theme
-    #git:
-    #repo: https://github.com/romkatv/powerlevel10k.git
-    #dest: "{{ lookup('env', 'ZSH_CUSTOM') }}/themes/powerlevel10k"
+- name: Install PowerLevel10K theme
+    git:
+    repo: https://github.com/romkatv/powerlevel10k.git
+    dest: "{{ lookup('env', 'ZSH_CUSTOM') }}/themes/powerlevel10k"
