@@ -1,5 +1,15 @@
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+local ensure_packer = function()
+    local fn = vim.fn
+    local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+    if fn.empty(fn.glob(install_path)) > 0 then
+        fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+        vim.cmd [[packadd packer.nvim]]
+        return true
+    end
+    return false
+end
+
+local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
 	-- Packer can manage itself
@@ -22,8 +32,8 @@ return require('packer').startup(function(use)
 	}
 
     -- Theme
-	use({ 
-		'folke/tokyonight.nvim', 
+	use({
+		'folke/tokyonight.nvim',
 		as = 'tokyonight',
 		config = function()
 			vim.cmd('colorscheme tokyonight')
@@ -63,7 +73,7 @@ return require('packer').startup(function(use)
     }
     use('simrat39/inlay-hints.nvim')
     use('simrat39/rust-tools.nvim')
-    use('p00f/clangd_extensions.nvim')
+    -- use('p00f/clangd_extensions.nvim')
 
     -- For git highlighting when file is modified
     use("lewis6991/gitsigns.nvim")
@@ -86,4 +96,8 @@ return require('packer').startup(function(use)
 
     -- Vim navigator
     use('christoomey/vim-tmux-navigator')
+
+    if packer_bootstrap then
+        require('packer').sync()
+    end
 end)
