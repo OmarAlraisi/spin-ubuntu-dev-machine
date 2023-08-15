@@ -1,8 +1,4 @@
 ---
-- name: Display username
-  debug:
-    msg: "user is {{ user }}"
-
 - name: Ensure ZSH is installed
   apt:
     name: zsh

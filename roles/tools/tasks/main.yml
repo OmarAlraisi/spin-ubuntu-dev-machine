@@ -1,0 +1,23 @@
+---
+- name: Install necessary apt packages
+  apt:
+    name:
+      - tmux
+      - ripgrep
+      - bat
+      
+- name: Install necessary snap packages
+  community.general.snap:
+    name:
+      - lsd
+      - neovim
+
+- name: Install Rust [1/2]
+  get_url:
+    url: https://sh.rustup.rs
+    dest: /tmp/sh.rustup.rs
+    mode: 0755
+    force: yes
+
+- name: Install Rust [2/2]
+  shell: /tmp/sh.rustup.rs -y

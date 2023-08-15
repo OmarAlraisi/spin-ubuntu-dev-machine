@@ -10,7 +10,7 @@
 
   roles:
     - shell
-    #- tools
+    - tools
     - dotfiles
 
   # The reason this is kept for last, because a new linux machine may need reboots when upgrading packages
