@@ -27,7 +27,7 @@
   become_user: "{{ user }}"
   copy:
     src: nvim
-    dest: "/home/{{ user }}/.config/nvim"
+    dest: "/home/{{ user }}/.config"
 
 - name: Run PackerSync
   become_user: "{{ user }}"
