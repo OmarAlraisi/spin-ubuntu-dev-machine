@@ -44,4 +44,4 @@ There are two primary ways to automate your ubuntu setup:
 
 ### Method II: One command method
 
- - Install and run setup script `curl -sSL https://gist.githubusercontent.com/OmarAlraisi/66d272ece702e59ef58a41c78e16f934/raw/5de9b96a5a74cf6ffb35f7e104bbd0769e946bc5/spin-ubuntu-dev-machine.sh | bash`
+ - Install and run setup script `curl -sSL https://gist.githubusercontent.com/OmarAlraisi/66d272ece702e59ef58a41c78e16f934/raw/f95448bcca9b8c8ca4566c5277163f0b193c3e4e/spin-ubuntu-dev-machine.sh | bash`
