@@ -23,8 +23,12 @@
     src: p10k.zsh
     dest: "/home/{{ user }}/.p10k.zsh"
 
-      #- name: Copy nvim config
-      #become_user: "{{ user }}"
-      #copy:
-      #src: nvim
-      #dest: "/home/{{ user }}/.config/nvim"
+- name: Copy nvim config
+  become_user: "{{ user }}"
+  copy:
+    src: nvim
+    dest: "/home/{{ user }}/.config/nvim"
+
+- name: Run PackerSync
+  become_user: "{{ user }}"
+  shell: "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
