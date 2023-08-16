@@ -12,11 +12,15 @@
     name:
       - lsd
       - nvim
+      - node
     classic: true
 
 - name: Install packer
   become_user: "{{ user }}"
-  shell: "git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim"
+  git:
+    repo: https://github.com/wbthomason/packer.nvim.git
+    dest: ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+    clone: yes
 
 - name: Install Rust [1/2]
   become_user: "{{ user }}"
