@@ -29,12 +29,26 @@
     src: nvim
     dest: "/home/{{ user }}/.config"
 
-# - name: Run PackerSync
-#   become_user: "{{ user }}"
-#   shell: 
+- name: Run PackerSync
+  shell: "nvim -c \"lua require('omar.packer').sync()\" &"
+  async: 300
+  poll: 0
+  register: packer_install_process
 
-# - name: Copy /nvim/after directory
-#   become_user: "{{ user }}"
-#   copy:
-#     src: nvim-after
-#     dest: "/home/{{ user }}/.config/nvim/after"
+- name: Halt for 10 seconds
+  async_status:
+    jid: "{{ packer_install_process.ansible_job_id }}"
+  register: job_result
+  until: job_result.finished
+  retries: 20
+  delay: 1
+
+- name: Kill nvim from the background
+  shell: "kill -9 {{ packer_install_process.ansible_return_code.pid }}"
+  when: job_result.results.failed == true
+
+- name: Copy /nvim/after directory
+  become_user: "{{ user }}"
+  copy:
+    src: nvim-after
+    dest: "/home/{{ user }}/.config/nvim/after"
