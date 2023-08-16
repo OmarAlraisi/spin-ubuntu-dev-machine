@@ -29,6 +29,6 @@
     src: nvim
     dest: "/home/{{ user }}/.config"
 
-- name: Run PackerSync
-  become_user: "{{ user }}"
-  shell: "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
+# - name: Run PackerSync
+#   become_user: "{{ user }}"
+#   shell: ""
