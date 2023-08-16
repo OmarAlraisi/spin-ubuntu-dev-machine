@@ -5,6 +5,7 @@
       - tmux
       - ripgrep
       - bat
+      - clang
       
 - name: Install necessary snap packages
   community.general.snap:

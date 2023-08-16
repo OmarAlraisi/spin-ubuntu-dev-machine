@@ -29,6 +29,6 @@
     src: nvim
     dest: "/home/{{ user }}/.config"
 
-# - name: Run PackerSync
+# - name: Sync Packer Packages
 #   become_user: "{{ user }}"
 #   shell: ""

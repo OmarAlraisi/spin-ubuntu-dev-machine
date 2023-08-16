@@ -62,7 +62,7 @@ return require('packer').startup(function(use)
     }
     use('simrat39/inlay-hints.nvim')
     use('simrat39/rust-tools.nvim')
-    -- use('p00f/clangd_extensions.nvim')
+    use('p00f/clangd_extensions.nvim')
 
     -- For git highlighting when file is modified
     use("lewis6991/gitsigns.nvim")
