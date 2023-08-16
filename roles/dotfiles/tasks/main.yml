@@ -29,11 +29,12 @@
     src: nvim
     dest: "/home/{{ user }}/.config"
 
-- name: Run PackerSync
-  become_user: "{{ user }}"
-  expect:
-    command: nvim
-    responses:
-      'Press ENTER or type command to continue': "\r"
-      'PackerSync': "\r"
-      'Press ENTER': "\r"
+# - name: Run PackerSync
+#   become_user: "{{ user }}"
+#   shell: 
+
+# - name: Copy /nvim/after directory
+#   become_user: "{{ user }}"
+#   copy:
+#     src: nvim-after
+#     dest: "/home/{{ user }}/.config/nvim/after"
