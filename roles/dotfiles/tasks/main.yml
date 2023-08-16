@@ -52,5 +52,5 @@
 - name: Copy /nvim/after directory
   become_user: "{{ user }}"
   copy:
-    src: nvim-after
-    dest: "/home/{{ user }}/.config/nvim/after"
+    src: after
+    dest: "/home/{{ user }}/.config/nvim"
