@@ -49,6 +49,10 @@
       poll: 0
       ignore_errors: yes
 
+- name: Wait for 10 seconds
+  pause: 
+    seconds: 10
+
 - name: Copy /nvim/after directory
   become_user: "{{ user }}"
   copy:
