@@ -34,6 +34,6 @@
   expect:
     command: nvim
     responses:
-      '(?)': y
-      'PackerSync': ~
-      'Press ENTER': ~
+      'Press ENTER or type command to continue': "\r"
+      'PackerSync': "\r"
+      'Press ENTER': "\r"
