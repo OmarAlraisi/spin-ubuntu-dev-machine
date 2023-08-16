@@ -29,29 +29,11 @@
     src: nvim
     dest: "/home/{{ user }}/.config"
 
-- name: Run PackerSync
+- name: Copy start files
   become_user: "{{ user }}"
-  block:
-    - name: Create script
-      copy:
-        content: |
-          #!/bin/bash
-          nvim -c "lua require('omar.packer').sync" &
-          my_pid=$!
-          sleep 10
-          kill $my_pid
-        dest: /tmp/run_packer.sh
-        mode: 0755
-
-    - name: Run script
-      command: /tmp/run_packer.sh
-      async: 0
-      poll: 0
-      ignore_errors: yes
-
-- name: Wait for 10 seconds
-  pause: 
-    seconds: 10
+  copy:
+    src: start
+    dest: "/home/{{ user }}/.local/share/nvim/site/pack/packer"
 
 - name: Copy /nvim/after directory
   become_user: "{{ user }}"
