@@ -24,11 +24,13 @@
     clone: yes
 
 - name: Install Rust [1/2]
-  get_url:
-    url: https://sh.rustup.rs
-    dest: /tmp/sh.rustup.rs
-    mode: 0755
-    force: yes
+  block:
+    - name: [1/2]
+      get_url:
+        url: https://sh.rustup.rs
+        dest: /tmp/sh.rustup.rs
+        mode: 0755
+        force: yes
 
-- name: Install Rust [2/2]
-  shell: /tmp/sh.rustup.rs -y
+    - name: [2/2]
+      shell: /tmp/sh.rustup.rs -y
