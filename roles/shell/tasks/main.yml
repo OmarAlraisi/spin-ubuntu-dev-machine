@@ -13,14 +13,14 @@
 
 - name: Install Oh My Zsh [1/2]
   block: 
-    - name: [1/2]
+    - name: 1/2
       get_url:
         url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
         dest: /tmp/install.sh
         mode: 0755
         force: yes
 
-    - name: [2/2]
+    - name: 2/2
       shell: /tmp/install.sh
 
 - name: Install packer
