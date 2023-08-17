@@ -19,3 +19,6 @@
       apt:
         name: "*"
         state: latest
+
+    # - name: Reboot the system
+    #   reboot:
