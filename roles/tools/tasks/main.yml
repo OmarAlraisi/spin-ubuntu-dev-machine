@@ -29,6 +29,9 @@
     mode: 0755
     force: yes
 
+- name: Source bashrc
+  command: source ~/.bashrc
+
 - name: Install Rust [2/2]
   become_user: "{{ user }}"
   shell: /tmp/sh.rustup.rs -y
