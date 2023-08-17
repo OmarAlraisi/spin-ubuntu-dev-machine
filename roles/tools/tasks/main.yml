@@ -1,5 +1,6 @@
 ---
 - name: Install necessary apt packages
+  become: true
   apt:
     name:
       - tmux
@@ -8,6 +9,7 @@
       - clang
       
 - name: Install necessary snap packages
+  become: true
   community.general.snap:
     name:
       - lsd
@@ -16,14 +18,12 @@
     classic: true
 
 - name: Install packer
-  become_user: "{{ user }}"
   git:
     repo: https://github.com/wbthomason/packer.nvim.git
     dest: ~/.local/share/nvim/site/pack/packer/start/packer.nvim
     clone: yes
 
 - name: Install Rust [1/2]
-  become_user: "{{ user }}"
   get_url:
     url: https://sh.rustup.rs
     dest: /tmp/sh.rustup.rs
@@ -31,5 +31,4 @@
     force: yes
 
 - name: Install Rust [2/2]
-  become_user: "{{ user }}"
   shell: /tmp/sh.rustup.rs -y

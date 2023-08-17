@@ -1,26 +1,24 @@
 ---
 - name: Ensure ZSH is installed
+  become: true
   apt:
     name: zsh
     state: present
 
 - name: Set zsh as the default shell for the current user
+  become: true
   user:
     name: "{{ user }}"
     shell: /usr/bin/zsh
 
 - name: Run Oh My Zsh Installation Script
-  become_user: "{{ user }}"
   shell: "curl -sSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash"
 
 - name: Install PowerLevel10K theme
-  become_user: "{{ user }}"
   shell: git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 - name: Install autosuggestions plugin
-  become_user: "{{ user }}"
   shell: git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 - name: Install syntax highligher plugin
-  become_user: "{{ user }}"
   shell: git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting

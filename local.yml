@@ -1,7 +1,6 @@
 ---
 - hosts: localhost
   connection: local
-  become: true
 
   vars:
     user: "{{ lookup('env', 'USER') }}"
@@ -16,6 +15,7 @@
   # The reason this is kept for last, because a new linux machine may need reboots when upgrading packages
   post_tasks:
     - name: upgrade packages to latest
+      become: true
       block: 
         - name: apt packages
           apt:
@@ -27,4 +27,5 @@
           command: snap refresh
 
     - name: Reboot the system
+      become: true
       shell: reboot
