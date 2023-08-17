@@ -16,9 +16,15 @@
   # The reason this is kept for last, because a new linux machine may need reboots when upgrading packages
   post_tasks:
     - name: upgrade packages to latest
-      apt:
-        name: "*"
-        state: latest
+      block: 
+        - name: apt packages
+          apt:
+            upgrade: yes
+            autoremove: yes
+            autoclean: yes
 
-    # - name: Reboot the system
-    #   reboot:
+        - name: snap packages
+          command: snap refresh
+
+    - name: Reboot the system
+      reboot:
