@@ -10,6 +10,7 @@
 - name: Install necessary snap packages
   community.general.snap:
     name:
+      - lsd
       - nvim
       - node
     classic: true
@@ -29,13 +30,6 @@
     mode: 0755
     force: yes
 
-- name: Source bashrc
-  become_user: "{{ user }}"
-  shell: source ~/.bashrc
-
 - name: Install Rust [2/2]
   become_user: "{{ user }}"
   shell: /tmp/sh.rustup.rs -y
-
-- name: Install lsd
-  command: cargo install lsd
