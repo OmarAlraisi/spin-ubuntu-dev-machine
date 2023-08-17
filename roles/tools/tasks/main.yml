@@ -31,7 +31,7 @@
 
 - name: Source bashrc
   become_user: "{{ user }}"
-  command: source ~/.bashrc
+  shell: source ~/.bashrc
 
 - name: Install Rust [2/2]
   become_user: "{{ user }}"
