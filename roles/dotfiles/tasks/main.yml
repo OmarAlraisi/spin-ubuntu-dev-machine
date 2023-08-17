@@ -42,3 +42,17 @@
       copy:
         src: after
         dest: "/home/{{ user }}/.config/nvim"
+
+- name: Copy tmux configs
+  become_user: "{{ user }}"
+  block:
+    - name: Clone tmux plugin manager
+      git:
+        repo: https://github.com/tmux-plugins/tpm
+        dest: ~/.tmux/plugins/tpm
+        clone: yes
+
+    - name: Copy tmux.conf file
+      copy:
+        src: tmux.conf
+        dest: "/home/{{ user }}/.tmux.conf"
