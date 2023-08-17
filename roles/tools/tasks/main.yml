@@ -30,6 +30,7 @@
     force: yes
 
 - name: Source bashrc
+  become_user: "{{ user }}"
   command: source ~/.bashrc
 
 - name: Install Rust [2/2]
