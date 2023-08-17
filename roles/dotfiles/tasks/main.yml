@@ -29,12 +29,15 @@
     src: nvim
     dest: "/home/{{ user }}/.config"
 
-# - name: Install Packer Packages
-#   become_user: "{{ user }}"
-#   shell: ""
+- name: Install Packer Packages
+  become_user: "{{ user }}"
+  block:
+    - name: Run PackerSync
+      command: "nohup nvim -c 'lua require(\"omar.packer\").sync()' &"
+      async: 20
+      poll: 20
 
-# - name: Copy /nvim/after directory
-#   become_user: "{{ user }}"
-#   copy:
-#     src: after
-#     dest: "/home/{{ user }}/.config/nvim"
+    - name: Copy /nvim/after directory
+      copy:
+        src: after
+        dest: "/home/{{ user }}/.config/nvim"
