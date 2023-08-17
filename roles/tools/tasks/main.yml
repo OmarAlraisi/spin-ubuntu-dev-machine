@@ -25,12 +25,12 @@
 
 - name: Install Rust [1/2]
   block:
-    - name: [1/2]
+    - name: "[1/2]"
       get_url:
         url: https://sh.rustup.rs
         dest: /tmp/sh.rustup.rs
         mode: 0755
         force: yes
 
-    - name: [2/2]
+    - name: "[2/2]"
       shell: /tmp/sh.rustup.rs -y
