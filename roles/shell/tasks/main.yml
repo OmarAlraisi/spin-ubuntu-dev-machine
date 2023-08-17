@@ -11,14 +11,37 @@
     name: "{{ user }}"
     shell: /usr/bin/zsh
 
-- name: Run Oh My Zsh Installation Script
-  shell: "curl -sSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash"
+- name: Install Oh My Zsh [1/2]
+  get_url:
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    dest: /tmp/install.sh
+    mode: 0755
+    force: yes
+
+- name: Install Oh My Zsh [2/2]
+  shell: /tmp/install.sh
+
+- name: Install packer
+  git:
+    repo: https://github.com/wbthomason/packer.nvim.git
+    dest: ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+    clone: yes
 
 - name: Install PowerLevel10K theme
-  shell: git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+  git:
+    repo: https://github.com/romkatv/powerlevel10k.git
+    dest: "/home/{{ user }}/.oh-my.zsh/custom/themes/powerlevel10k"
+    depth: 1
+    clone: yes
 
 - name: Install autosuggestions plugin
-  shell: git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+  git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions
+    dest: "/home/{{ user }}/custom/plugins/zsh-autosuggestions"
+    clone: yes
 
 - name: Install syntax highligher plugin
-  shell: git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+  git:
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest: "/home/{{ user }}/custom/plugins/zsh-syntax-highlighting"
+    clone: yes
