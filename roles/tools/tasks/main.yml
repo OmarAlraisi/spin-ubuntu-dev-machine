@@ -14,9 +14,6 @@
       - node
     classic: true
 
-- name: Install lsd
-  command: cargo install lsd
-
 - name: Install packer
   become_user: "{{ user }}"
   git:
@@ -35,3 +32,6 @@
 - name: Install Rust [2/2]
   become_user: "{{ user }}"
   shell: /tmp/sh.rustup.rs -y
+
+- name: Install lsd
+  command: cargo install lsd
