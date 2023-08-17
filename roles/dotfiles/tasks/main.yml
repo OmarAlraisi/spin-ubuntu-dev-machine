@@ -29,14 +29,12 @@
     src: nvim
     dest: "/home/{{ user }}/.config"
 
-- name: Copy start files
-  become_user: "{{ user }}"
-  copy:
-    src: start
-    dest: "/home/{{ user }}/.local/share/nvim/site/pack/packer"
+# - name: Install Packer Packages
+#   become_user: "{{ user }}"
+#   shell: ""
 
-- name: Copy /nvim/after directory
-  become_user: "{{ user }}"
-  copy:
-    src: after
-    dest: "/home/{{ user }}/.config/nvim"
+# - name: Copy /nvim/after directory
+#   become_user: "{{ user }}"
+#   copy:
+#     src: after
+#     dest: "/home/{{ user }}/.config/nvim"
