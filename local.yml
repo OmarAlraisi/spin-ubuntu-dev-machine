@@ -27,4 +27,4 @@
           command: snap refresh
 
     - name: Reboot the system
-      reboot:
+      shell: reboot
