@@ -10,10 +10,12 @@
 - name: Install necessary snap packages
   community.general.snap:
     name:
-      - lsd
       - nvim
       - node
     classic: true
+
+- name: Install lsd
+  command: cargo install lsd
 
 - name: Install packer
   become_user: "{{ user }}"
