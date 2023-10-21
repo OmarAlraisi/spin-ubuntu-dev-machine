@@ -16,7 +16,10 @@
   post_tasks:
     - name: upgrade packages to latest
       become: true
-      block: 
+      block:
+        - name: Update apt repo
+          command: apt update
+          
         - name: apt packages
           apt:
             upgrade: yes
